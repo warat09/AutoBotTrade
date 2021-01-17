@@ -14,9 +14,13 @@ addBtn.addEventListener('click',(e) => {
     //const autoId = rootRef.push().key
     return database.ref('/users/'+ username.value).once('value').then((snapshot) => {
         var registerusername = (snapshot.val()&& snapshot.val().username);
+        var registeremail = (snapshot.val()&& snapshot.val().email);
       // ...
       console.log(registerusername)
-        if(username.value == registerusername){
+        if(username.value == registerusername || email.value == registeremail){
+            window.alert('ไอดีนี้มีแล้ว')
+        }
+        else if(username.value == 'beba' && password.value == '1'){
             window.alert('ไอดีนี้มีแล้ว')
         }
         else{
@@ -28,6 +32,7 @@ addBtn.addEventListener('click',(e) => {
                 locations:locations.value,
                 fileuser:fileuser.value
             })
+            window.alert('สมัครเรียบร้อยแล้ว')
         }
     });
 });
