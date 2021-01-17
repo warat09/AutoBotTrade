@@ -16,6 +16,7 @@
 
         <section class="signup">
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <!--idห้ามซ้ำ-->
             <div class="container">
                 <div class="signup-content">
                     <form method="POST" id="signup-form" class="signup-form">
@@ -27,35 +28,31 @@
                             </div>
                         <h2 class="form-title">สร้างบัญชี</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="ชื่อ-นามสกุล"/>
+                            <input type="text" class="form-input" name="names" id="names" placeholder="ชื่อ-นามสกุล"/>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-input" name="email" id="email" placeholder="ที่อยู่ติดต่อ
+                            <input type="text" class="form-input" name="locations" id="locations" placeholder="ที่อยู่ติดต่อ
                             "/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="username" id="username" placeholder="ชื่อผู้ใช้"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="email" id="email" placeholder="อีเมล"/>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-input" name="password" id="password" placeholder="รหัสผ่าน"/>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>  
                         <div class="form-group">
-                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="ยืนยันรหัสผ่าน"/>
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="อีเมล"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="file" accept="image/*">
+                            <input type="file" accept="image/*" name="fileuser" id="fileuser">
                         </div>
                         <div>
                             <p>*กรุณาแนบบัตรประชาชน*</p>
                         </div>
+                        
                         <div class="form-group">
-                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="สมัคร"/>
+                            <button id="addBtn" class="form-submit">สมัคร</button>
                         </div>
                         
                     </form>
@@ -70,5 +67,31 @@
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBZfiJoUbxjhPDRcEx0TImHot90-wFqDnA",
+    authDomain: "webautobot-e3ea8.firebaseapp.com",
+    projectId: "webautobot-e3ea8",
+    storageBucket: "webautobot-e3ea8.appspot.com",
+    messagingSenderId: "576493339720",
+    appId: "1:576493339720:web:3c87735e3613c1a8ef847d",
+    measurementId: "G-FBD81CGWKC"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src="./funtionregis.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
