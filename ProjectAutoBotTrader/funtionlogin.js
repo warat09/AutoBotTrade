@@ -18,8 +18,8 @@ Btlogin.addEventListener('click',(e) => {
     }
     else{
         return database.ref('/admin/').once('value').then((snapshot) => {
-            var adminusername = (snapshot.val()&& snapshot.val().username);
-            var adminpassword = (snapshot.val() && snapshot.val().password);
+            var adminusername = (snapshot.val()&& snapshot.val().adminusername);
+            var adminpassword = (snapshot.val() && snapshot.val().adminpassword);
           // ...
           
             if(loginusername.value == adminusername && loginpassword.value == adminpassword){
