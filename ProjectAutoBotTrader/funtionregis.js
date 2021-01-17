@@ -12,7 +12,7 @@ const database = firebase.database()
 addBtn.addEventListener('click',(e) => {
     e.preventDefault();
     //const autoId = rootRef.push().key
-    return database.ref('/users/').once('value').then((snapshot) => {
+    return database.ref('/users/'+ username.value).once('value').then((snapshot) => {
         var registerusername = (snapshot.val()&& snapshot.val().username);
       // ...
       console.log(registerusername)
