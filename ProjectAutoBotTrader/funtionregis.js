@@ -12,14 +12,23 @@ const database = firebase.database()
 addBtn.addEventListener('click',(e) => {
     e.preventDefault();
     //const autoId = rootRef.push().key
-    database.ref('/users/'+ username.value).set({ 
-        username:username.value,
-        email:email.value,
-        password:password.value,
-        name:names.value,
-        locations:locations.value,
-        fileuser:fileuser.value
-    })
-    window.alert('เรียบร้อยแล้ว')
+    return database.ref('/users/').once('value').then((snapshot) => {
+        var registerusername = (snapshot.val()&& snapshot.val().username);
+      // ...
+      console.log(registerusername)
+        if(username.value == registerusername){
+            window.alert('ไอดีนี้มีแล้ว')
+        }
+        else{
+            database.ref('/users/'+ username.value).set({ 
+                username:username.value,
+                email:email.value,
+                password:password.value,
+                name:names.value,
+                locations:locations.value,
+                fileuser:fileuser.value
+            })
+        }
+    });
 });
 
