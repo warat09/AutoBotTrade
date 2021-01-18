@@ -14,19 +14,19 @@ Btlogin.addEventListener('click',(e) => {
   console.log(username)
   console.log(password) 
     if(loginusername.value == username && loginpassword.value == password){
-        window.open("./register.html")
+        window.open("./adminpage/profile.html")
     }
     else{
         return database.ref('/admin/').once('value').then((snapshot) => {
-            var adminusername = (snapshot.val()&& snapshot.val().adminusername);
-            var adminpassword = (snapshot.val() && snapshot.val().adminpassword);
+            var adminusername = (snapshot.val()&& snapshot.val().username);
+            var adminpassword = (snapshot.val() && snapshot.val().password);
           // ...
           
             if(loginusername.value == adminusername && loginpassword.value == adminpassword){
-                window.open("./register.html")
+                window.open("./Admin3/index.html")
             }
             else{
-                window.alert('อีเมล์หรือพาสเวริด์ผิด!!')
+                window.alert('ชื่อผู้ใช้หรือพาสเวริด์ผิด!!')
             }
         });
     }
