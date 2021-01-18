@@ -45,6 +45,11 @@
                             <input type="text" class="form-input" name="password" id="password" placeholder="รหัสผ่าน"/>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div> 
+                        <div class="box">
+                            <input required id="one" type="checkbox">
+                            <span class="check"></span>
+                            <label for="one"><a href="login.html" class="loginhere-link">ข้อมูลความเสี่ยงและข้อตกลงการใช้งานบอท</a></label>
+                        </div>   
                         <label>กรุณากรอก Captcha:</label>
                          <div class="form-row">
                         <div class="form-group col-md-6">
@@ -54,7 +59,7 @@
                         <input type="text" class="form-control" id="textinput">
                         </div>
                         </div>
-                    </form>
+                    
                 <h6>Captcha ไม่เห็นกดที่รูป <img src="./images/refresh.jpg" width="40px" onclick="cap()"></h6>
                         
                         <div class="form-group">
@@ -121,7 +126,13 @@
                   }else if(stg1 != stg2){
                     return false  
                   }
+                  
                  }
+                 //function check(){
+                    //if(document.getElementById("one").checked == false){
+                    //alert("false")
+                  //}
+                 //}
   </script>
   <script src="./funtionregis.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
