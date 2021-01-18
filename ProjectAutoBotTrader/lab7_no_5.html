@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>no5</title>
+    <script>
+        let r = 0
+        function ins(){
+            r++
+            let row = ttt.insertRow(r)
+            row.insertCell(0).innerHTML = f.name.value;
+            f.name.value = "";
+            row.insertCell(1).innerHTML = f.address.value;
+            f.address.value = "";
+            row.insertCell(2).innerHTML = f.tel.value;
+            f.tel.value = "";
+        }
+    </script>
+    <style>
+        table,th,tr,td{
+            border-collapse: none;
+            border:1px black solid;
+            padding: 2px;
+            outline: 2px;
+            background-color: tan
+        }
+        th,tr,td{
+            background-color:white
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="f">
+        ชื่อลูกค้า: <input type="text" id="name"> <br>
+        ที่อยู่:    <input type="text"  id="address" >  <br>
+        โทรศัพท์: <input type="text"  id="tel"> <br>
+    </form>
+    <button onclick="ins()">เพิ่มข้อมูล</button>
+    <br><br>
+    <table id="ttt">
+        <tr>
+            <th>ชื่อลูกค้า</th>
+            <th>ที่อยู่</th>
+            <th>โทรศัพท์</th>
+        </tr>
+    </table>
+</body>
+</html>
