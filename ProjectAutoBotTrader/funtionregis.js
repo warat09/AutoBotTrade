@@ -5,6 +5,10 @@ const names = document.getElementById("names")
 const locations = document.getElementById("locations")
 const fileuser = document.getElementById("fileuser")
 const username = document.getElementById("username")
+const recap1 = document.getElementById("textinput")
+const recap2 = document.getElementById('capt')
+//const box = document.getElementById("one").checked
+//const box2 = document.getElementById("one")
 const balance = '0'
 
 const database = firebase.database()
@@ -20,28 +24,31 @@ addBtn.addEventListener('click',(e) => {
         var registerlocation = (snapshot.val()&& snapshot.val().locations);
         var registername = (snapshot.val()&& snapshot.val().names);
       // ...
-      console.log(registerusername)
-        if(username.value == registerusername || email.value == registeremail){
-            window.alert('ไอดีนี้มีแล้ว')
+      
+      if(username.value == registerusername || email.value == registeremail){
+        window.alert('ไอดีนี้มีแล้ว')
         }
-        else if(username.value == '' || names.value == '' || password.value == '' || locations.value == null || email.value == ''){
-            window.alert('กรุณากรอกให้ครบ')
+    else if(username.value == '' || names.value == '' || password.value == '' || locations.value == null || email.value == '' || recap1.value == ''){
+        window.alert('กรุณากรอกให้ครบ')
         }
-        else if(username.value == 'beba' && password.value == 'autobotsigz'){
-            window.alert('ไอดีนี้มีแล้ว')
-        }
-        else{
-            database.ref('/users/'+ username.value).set({ 
-                username:username.value,
-                email:email.value,
-                password:password.value,
-                name:names.value,
-                locations:locations.value,
-                balance:balance
-                
-            })
-            window.alert('สมัครเรียบร้อยแล้ว')
-        }
+    else if(recap1.value != recap2.value){
+        window.alert('กรุณากรอกให้ถูกต้อง')
+    }
+    else if(username.value == 'beba' && password.value == 'autobotsigz'){
+        window.alert('ไอดีนี้มีแล้ว')
+    }
+    else{
+        database.ref('/users/'+ username.value).set({ 
+            username:username.value,
+            email:email.value,
+            password:password.value,
+            name:names.value,
+            locations:locations.value,
+            balance:balance
+            
+        })
+        window.alert('สมัครเรียบร้อยแล้ว')
+    }
     });
 });
 
