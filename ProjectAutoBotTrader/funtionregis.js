@@ -7,12 +7,12 @@ const fileuser = document.getElementById("fileuser")
 const username = document.getElementById("username")
 const recap1 = document.getElementById("textinput")
 const recap2 = document.getElementById('capt')
-//const box = document.getElementById("one").checked
-//const box2 = document.getElementById("one")
+const box2 = document.getElementById("one")
 const balance = '0'
 
 const database = firebase.database()
 //const rootRef = database.ref('user')
+
 
 addBtn.addEventListener('click',(e) => {
     e.preventDefault();
@@ -24,15 +24,21 @@ addBtn.addEventListener('click',(e) => {
         var registerlocation = (snapshot.val()&& snapshot.val().locations);
         var registername = (snapshot.val()&& snapshot.val().names);
       // ...
-      
+      console.log(document.getElementById("one").checked)
       if(username.value == registerusername || email.value == registeremail){
         window.alert('ไอดีนี้มีแล้ว')
         }
-    else if(username.value == '' || names.value == '' || password.value == '' || locations.value == null || email.value == '' || recap1.value == ''){
+    else if(username.value == '' || names.value == '' || password.value == '' || locations.value == '' || email.value == ''){
         window.alert('กรุณากรอกให้ครบ')
         }
     else if(recap1.value != recap2.value){
         window.alert('กรุณากรอกให้ถูกต้อง')
+    }
+    else if(recap1.value == ''){
+        window.alert('กรุณากรอกให้ครบ')
+    }
+    else if(!document.getElementById("one").checked){
+        window.alert('กรุณาติ๊กข้อมูลความเสี่ยงและข้อตกลงการใช้งานบอท')
     }
     else if(username.value == 'beba' && password.value == 'autobotsigz'){
         window.alert('ไอดีนี้มีแล้ว')
@@ -48,6 +54,8 @@ addBtn.addEventListener('click',(e) => {
             
         })
         window.alert('สมัครเรียบร้อยแล้ว')
+        window.close('register.html')
+        window.open('login.html')
     }
     });
 });
