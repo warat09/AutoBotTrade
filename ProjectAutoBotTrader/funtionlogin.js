@@ -14,7 +14,7 @@ Btlogin.addEventListener('click',(e) => {
   console.log(username)
   console.log(password) 
     if(loginusername.value == username && loginpassword.value == password){
-        window.open("./adminpage/profile.html")
+        window.open("./Admin3/profile.html")
     }
     else{
         return database.ref('/admin/').once('value').then((snapshot) => {
@@ -23,7 +23,7 @@ Btlogin.addEventListener('click',(e) => {
           // ...
           
             if(loginusername.value == adminusername && loginpassword.value == adminpassword){
-                window.open("./Admin3/index.html")
+                window.open("./Admin3/admin.html")
             }
             else{
                 window.alert('ชื่อผู้ใช้หรือพาสเวริด์ผิด!!')
