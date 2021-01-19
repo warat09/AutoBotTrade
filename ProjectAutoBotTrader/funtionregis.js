@@ -7,10 +7,12 @@ const fileuser = document.getElementById("fileuser")
 const username = document.getElementById("username")
 const recap1 = document.getElementById("textinput")
 const recap2 = document.getElementById('capt')
+const tellp = document.getElementById('tell')
 const box2 = document.getElementById("one")
 const balance = '0'
 
 const database = firebase.database()
+const auth = firebase.auth();
 //const rootRef = database.ref('user')
 
 
@@ -25,10 +27,11 @@ addBtn.addEventListener('click',(e) => {
         var registername = (snapshot.val()&& snapshot.val().names);
       // ...
       console.log(document.getElementById("one").checked)
+      console.log(document.getElementById('password').value.length)
       if(username.value == registerusername || email.value == registeremail){
         window.alert('ไอดีนี้มีแล้ว')
         }
-    else if(username.value == '' || names.value == '' || password.value == '' || locations.value == '' || email.value == ''){
+    else if(username.value == '' || names.value == '' || password.value == '' || locations.value == '' || email.value == '' || tellp.value == ''){
         window.alert('กรุณากรอกให้ครบ')
         }
     else if(recap1.value != recap2.value){
@@ -40,6 +43,9 @@ addBtn.addEventListener('click',(e) => {
     else if(!document.getElementById("one").checked){
         window.alert('กรุณาติ๊กข้อมูลความเสี่ยงและข้อตกลงการใช้งานบอท')
     }
+    else if(document.getElementById('password').value.length < 8){
+        window.alert('ความยาวรหัสผ่านต้องมากกว่าหรือเท่ากับ8ตัว')
+    }
     else if(username.value == 'beba' && password.value == 'autobotsigz'){
         window.alert('ไอดีนี้มีแล้ว')
     }
@@ -50,13 +56,29 @@ addBtn.addEventListener('click',(e) => {
             password:password.value,
             name:names.value,
             locations:locations.value,
+            phone:tellp.value,
             balance:balance
             
         })
+        const emailau = email.value;
+        const passwordau = password.value;
+    
+        //Built in firebase function responsible for signing up a user
+        auth.createUserWithEmailAndPassword(emailau, passwordau)
+        .then(() => {
+            console.log('Signed Up Successfully !');
+            //sendVerificationEmail();
+        })
+        .catch(error => {
+            console.error(error);
+        })
         window.alert('สมัครเรียบร้อยแล้ว')
-        window.close('register.html')
-        window.open('login.html')
+        window.open("./login.html")
+        
     }
     });
 });
 
+function pdf(){
+    window.open("ข้อมูลความเสี่ยงและข้อตกลงการใช้งานบอท/ข้อมูลความเสี่ยงและข้อตกลงการใช้งานบอท.pdf")
+}
